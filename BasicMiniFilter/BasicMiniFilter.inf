@@ -1,0 +1,58 @@
+;
+; BasicMiniFilter.inf
+;
+
+[Version]
+Signature="$WINDOWS NT$"
+Class=System
+ClassGuid={4d36e97d-e325-11ce-bfc1-08002be10318}
+Provider=%ManufacturerName%
+DriverVer=
+CatalogFile=BasicMiniFilter.cat
+PnpLockDown=1
+
+[DestinationDirs]
+DefaultDestDir          = 12
+BasicMiniFilter.DriverFiles     = 12            ;%windir%\system32\drivers
+
+[DefaultInstall]
+OptionDesc          = %ServiceDescription%
+CopyFiles           = BasicMiniFilter.DriverFiles
+
+[DefaultInstall.Services]
+AddService          = %ServiceName%,,BasicMiniFilter.Service
+
+[DefaultUninstall]
+DelFiles   = BasicMiniFilter.DriverFiles
+
+[DefaultUninstall.Services]
+DelService = %ServiceName%,0x200      ;Ensure service is stopped before deleting
+
+[BasicMiniFilter.Service]
+DisplayName=%ServiceName%
+Description=%ServiceDescription%
+ServiceBinary=%12%\%DriverName%.sys        ;%windir%\system32\drivers\
+Dependencies=FltMgr
+ServiceType=2                            ;SERVICE_FILE_SYSTEM_DRIVER
+StartType=3                            ;SERVICE_DEMAND_START
+ErrorControl=1                            ;SERVICE_ERROR_NORMAL
+LoadOrderGroup="BasicMiniFilter"
+AddReg=BasicMiniFilter.AddRegistry
+
+[BasicMiniFilter.AddRegistry]
+HKR,,"SupportedFeatures",0x00010001,0x3
+HKR,"Instances","DefaultInstance",0x00000000,%DefaultInstance%
+HKR,"Instances\"%Instance.Name%,"Altitude",0x00000000,%Instance.Altitude%
+HKR,"Instances\"%Instance.Name%,"Flags",0x00010001,%Instance.Flags%
+
+[Strings]
+ManufacturerName="DerKi" ;TODO: Replace with your manufacturer name
+ClassName=""
+DiskName="BasicMiniFilter Source Disk"
+DefaultInstance="BasicMiniFilter First Instance"
+Instance.Name="BasicMiniFilter First Instance"
+Instance.Altitude="361000"
+Instance.Flags= 0x0          ; Suppress automatic attachments
+ServiceName="BasicMiniFilter"
+DriverName="BasicMiniFilter"
+ServiceDescription="BasicMinifilter Driver"
