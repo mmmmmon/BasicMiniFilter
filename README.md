@@ -14,9 +14,9 @@ I promise this stable on win7 and later.
 
 
 ## Tested
-- Win7 [enable verifier]
-- Win10 1903 [enable verifier]
-- Win10 ltsc 2021 [enable verifier]
+- Win7 [enabled verifier]
+- Win10 1903 [enabled verifier]
+- Win10 ltsc 2021 [enabled verifier]
 
 ## Build Environment
 - Visual Studio 2019 16.11.20
