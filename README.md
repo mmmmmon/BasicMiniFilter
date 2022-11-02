@@ -4,7 +4,7 @@
 
 [简体中文](README-zh.md) or [English](README.md)  
 
-If you is learning minifilter now,this example is suitable for you.
+If you are learning minifilter now,this example is suitable for you.
 
 I promise this stable on win7 and later.
 
