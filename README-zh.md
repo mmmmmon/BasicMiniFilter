@@ -23,5 +23,6 @@
 - Wdk 10.0.19041.685
 
 ## 特性
+- 可以使用注册表或者inf文件安装
 - 监控 Read\Wrtie\Create File
 - 静止所有test文件夹的访问，如C:\\test
