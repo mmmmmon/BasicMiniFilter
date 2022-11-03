@@ -23,5 +23,6 @@ I promise this stable on win7 and later.
 - Wdk 10.0.19041.685
 
 ## Features
+- 2 ways of minifilter install : writing registry by self or inf file
 - Monitor Read\Wrtie\Create File
 - Ban for anything test folder access,such as C:\\test
